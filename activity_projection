@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.andrewopio.hack.ProjectionActivity">
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="505dp"
+        android:background="#6495ED"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-8dp"
+        tools:layout_editor_absoluteY="3dp">
+<!-- This text will display Net gain-->
+        <TextView
+            android:layout_width="350"
+            android:layout_height="60"
+            android:layout_gravity="center"
+            android:layout_marginBottom="75dp"
+            android:autoText="true"
+            android:lines="3"
+
+        <!-- android:text="@string/Hello_World"-->
+        <!--android:background="#A9A9A9"-->
+
+        />
+<!-- CPI -->
+        <TextView
+            android:layout_width="350"
+            android:layout_height="60"
+            android:layout_gravity="center"
+
+            android:layout_marginBottom="75dp"
+            android:autoText="true"
+        <!--  android:text="@string/Hello_World"-->
+        <!-- android:background="#A9A9A9"-->
+        android:lines="3" />
+<!-- total inventory, surplus or not-->
+        <TextView
+            android:layout_width="350"
+            android:layout_height="60"
+            android:layout_gravity="center"
+
+            android:layout_marginBottom="75dp"
+            android:autoText="true"
+        <!--android:text="@string/Hello_World"-->
+        <!--android:background="#A9A9A9"-->
+        android:lines="3" />
+<!-- Generic -->
+        <TextView
+            android:layout_width="350"
+            android:layout_height="60"
+            android:layout_gravity="center"
+            android:autoText="true"
+        <!-- android:text="@string/Hello_World"-->
+        <!-- android:background="#A9A9A9"-->
+        android:lines="3" />
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
