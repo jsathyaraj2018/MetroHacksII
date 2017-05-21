@@ -1,0 +1,28 @@
+package com.example.android.oak_1;
+
+import android.provider.BaseColumns;
+
+public class FinanceContract {
+
+    public static final class ProfitAndLossEntry implements BaseColumns {
+        public static final String TABLE_NAME = "PROFIT_AND_LOSS_STATEMENTS";
+        public static final String COLUMN_YEAR = "COLUMN_YEAR";
+        public static final String COLUMN_QUARTER = "COLUMN_QUARTER";
+        public static final String COLUMN_WEEK = "COLUMN_WEEK";
+        public static final String COLUMN_REVENUE = "REVENUE";
+        public static final String COLUMN_COGS = "COGS";
+        public static final String COLUMN_DIRECT_LABOR = "DIRECT_LABOR";
+        public static final String COLUMN_OVERHEADS = "OVERHEADS";
+    }
+
+    public static final class InventoryEntry implements BaseColumns {
+        public static final String TABLE_NAME = "INVENTORY";
+        public static final String COLUMN_YEAR = "COLUMN_YEAR";
+        public static final String COLUMN_QUARTER = "COLUMN_QUARTER";
+        public static final String COLUMN_WEEK = "COLUMN_WEEK";
+        public static final String COLUMN_ITEM_NAME = "ITEM_NAME";
+        public static final String COLUMN_QUANTITY = "QUANTITY";
+        public static final String COLUMN_PRICE_PER_UNIT = "PRICE_PER_UNIT";
+        public static final String COLUMN_UNIT = "UNIT";
+    }
+}
