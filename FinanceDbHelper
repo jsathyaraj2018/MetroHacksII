@@ -1,0 +1,56 @@
+package com.example.android.oak_1;
+
+import android.database.sqlite.SQLiteOpenHelper;
+import android.content.Context;
+import android.database.sqlite.*;
+
+/**
+ * Created by Josh on 5/20/2017.
+ */
+
+public class FinanceDbHelper extends SQLiteOpenHelper {
+
+    private static final String DATABASE_NAME="finance.db";
+
+    private static final int DATABASE_VERSION=1;
+
+    public FinanceDbHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        String SQL_CREATE_ENTRIES="CREATE TABLE "+
+                FinanceContract.ProfitAndLossEntry.TABLE_NAME+" (" +
+                FinanceContract.ProfitAndLossEntry.COLUMN_YEAR+" INTEGER NOT NULL, " +
+                FinanceContract.ProfitAndLossEntry.COLUMN_QUARTER+" INTEGER NOT NULL, " +
+                FinanceContract.ProfitAndLossEntry.COLUMN_WEEK+" INTEGER NOT NULL, " +
+                FinanceContract.ProfitAndLossEntry.COLUMN_REVENUE+" REAL NOT NULL, " +
+                FinanceContract.ProfitAndLossEntry.COLUMN_COGS+" REAL NOT NULL, " +
+                FinanceContract.ProfitAndLossEntry.COLUMN_DIRECT_LABOR+" REAL NOT NULL, " +
+                FinanceContract.ProfitAndLossEntry.COLUMN_OVERHEADS+" REAL NOT NULL, PRIMARY KEY (" +
+                FinanceContract.ProfitAndLossEntry.COLUMN_YEAR+", " +
+                FinanceContract.ProfitAndLossEntry.COLUMN_QUARTER+", " +
+                FinanceContract.ProfitAndLossEntry.COLUMN_WEEK+"));";
+        sqLiteDatabase.execSQL(SQL_CREATE_ENTRIES);
+        SQL_CREATE_ENTRIES="CREATE TABLE "+
+                FinanceContract.InventoryEntry.TABLE_NAME+" ("+
+                FinanceContract.InventoryEntry.COLUMN_YEAR+" INTEGER NOT NULL, " +
+                FinanceContract.InventoryEntry.COLUMN_QUARTER+" INTEGER NOT NULL, " +
+                FinanceContract.InventoryEntry.COLUMN_WEEK+" INTEGER NOT NULL, " +
+                FinanceContract.InventoryEntry.COLUMN_ITEM_NAME+" VARCHAR2, "+
+                FinanceContract.InventoryEntry.COLUMN_QUANTITY+" INTEGER NOT NULL, "+
+                FinanceContract.InventoryEntry.COLUMN_PRICE_PER_UNIT+" REAL NOT NULL, " +
+                FinanceContract.InventoryEntry.COLUMN_UNIT+" VARCHAR2, PRIMARY KEY ("+
+                FinanceContract.InventoryEntry.COLUMN_YEAR+", " +
+                FinanceContract.InventoryEntry.COLUMN_QUARTER+", " +
+                FinanceContract.InventoryEntry.COLUMN_WEEK+"));";
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + FinanceContract.ProfitAndLossEntry.TABLE_NAME);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + FinanceContract.InventoryEntry.TABLE_NAME);
+        onCreate(sqLiteDatabase);
+    }
+}
