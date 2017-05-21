@@ -27,4 +27,8 @@ public class Home extends AppCompatActivity {
         Intent intent = new Intent(Home.this, NewEntryOptions.class);
         startActivity(intent);
     }
+    public void openProjections(View view){
+        Intent intent = new Intent(Home.this, New Projections.class);
+        startActivity(intent);
+    }
 }
