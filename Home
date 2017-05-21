@@ -7,6 +7,10 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
     }
+    public onStart(){
+    super.onStar();
+    displayDatabaseInfo();
+    }
 
     public void openProfitAndLoss(View view) {
         Intent intent = new Intent(Home.this, ProfitAndLoss.class);
