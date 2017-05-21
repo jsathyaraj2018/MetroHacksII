@@ -1,0 +1,64 @@
+package com.example.android.oak_1;
+
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.EditText;
+
+public class ProfitLossEntry extends AppCompatActivity {
+    EditText year_enter, quarter_enter, week_enter, revenue_enter, cogs_enter, direct_labor_enter, overheads_enter;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_profit_loss_entry);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                //        .setAction("Action", null).show();
+                submitNumbers(view);
+            }
+        });
+    }
+
+    public void submitNumbers(View view) {
+        year_enter = (EditText) findViewById(R.id.year_enter);
+        quarter_enter = (EditText) findViewById(R.id.quarter_enter);
+        week_enter = (EditText) findViewById(R.id.week_enter);
+        revenue_enter = (EditText) findViewById(R.id.revenue_enter);
+        cogs_enter = (EditText) findViewById(R.id.cogs_enter);
+        direct_labor_enter = (EditText) findViewById(R.id.direct_labor_enter);
+        overheads_enter = (EditText) findViewById(R.id.overheads_enter);
+        int year = Integer.valueOf(year_enter.getText().toString().trim());
+        int quarter = Integer.valueOf(quarter_enter.getText().toString().trim());
+        int week = Integer.valueOf(week_enter.getText().toString().trim());
+        double revenue = Double.valueOf(revenue_enter.getText().toString().trim());
+        double cogs = Double.valueOf(cogs_enter.getText().toString().trim());
+        double directLabor = Double.valueOf(direct_labor_enter.getText().toString().trim());
+        double overheads = Double.valueOf(overheads_enter.getText().toString().trim());
+        //FinanceDbHelper dbHelper = new FinanceDbHelper(getBaseContext());
+        SQLiteDatabase db = NewEntryOptions.dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(FinanceContract.ProfitAndLossEntry.COLUMN_YEAR, year);
+        values.put(FinanceContract.ProfitAndLossEntry.COLUMN_QUARTER, quarter);
+        values.put(FinanceContract.ProfitAndLossEntry.COLUMN_WEEK, week);
+        values.put(FinanceContract.ProfitAndLossEntry.COLUMN_REVENUE, revenue);
+        values.put(FinanceContract.ProfitAndLossEntry.COLUMN_COGS, cogs);
+        values.put(FinanceContract.ProfitAndLossEntry.COLUMN_DIRECT_LABOR, directLabor);
+        values.put(FinanceContract.ProfitAndLossEntry.COLUMN_OVERHEADS, overheads);
+        long newRowId = db.insert(FinanceContract.ProfitAndLossEntry.TABLE_NAME, null, values);
+        Intent intent = new Intent(ProfitLossEntry.this, ProfitAndLoss.class);
+        startActivity(intent);
+    }
+}
