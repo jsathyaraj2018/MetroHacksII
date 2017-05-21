@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.oak_1.Home">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/open_profit_loss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profit and Loss Statement"
+            android:onClick="openProfitAndLoss"/>
+        <Button
+            android:id="@+id/open_progress_report"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Progress Report"
+            android:onClick="openProgressReport"/>
+        <Button
+            android:id="@+id/open_inventory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inventory"
+            android:onClick="openInventory"/>
+        <Button
+            android:id="@+id/open_new_entry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Entry"
+            android:onClick="openNewEntryOptions"/>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
