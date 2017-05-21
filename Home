@@ -1,0 +1,30 @@
+import android.view.View;
+
+public class Home extends AppCompatActivity {
+    public static FinanceDbHelper dbHelper;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
+    }
+
+    public void openProfitAndLoss(View view) {
+        Intent intent = new Intent(Home.this, ProfitAndLoss.class);
+        startActivity(intent);
+    }
+
+    public void openProgressReport(View view) {
+        Intent intent = new Intent(Home.this, ProgressReport.class);
+        startActivity(intent);
+    }
+
+    public void openInventory(View view) {
+        Intent intent = new Intent(Home.this, Inventory.class);
+        startActivity(intent);
+    }
+
+    public void openNewEntryOptions(View view) {
+        Intent intent = new Intent(Home.this, NewEntryOptions.class);
+        startActivity(intent);
+    }
+}
